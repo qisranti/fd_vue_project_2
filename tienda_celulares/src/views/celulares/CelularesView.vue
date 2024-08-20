@@ -7,9 +7,13 @@
             <CelularEditView @on-update="onUpdate($event)" :item="itemToEdit" />
         </Modal>
         <h1>Lista de Celulares</h1>
-        <button @click="showModalNuevo = true" class="btn btn-primary">Nuevo</button>
-        <button @click="buscar()" class="btn btn-lith" style="float:right">Buscar</button>
-        <input type="search" style="float:right" v-model="textToSearch" @search="buscar()">
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px">
+            <button @click="showModalNuevo = true" class="btn btn-primary">Nuevo</button>
+            <div>
+                <button @click="buscar()" class="btn btn-lith" style="float:right">Buscar</button>
+                <input type="search" style="float:right" v-model="textToSearch" @search="buscar()">
+            </div>
+        </div>
         <table>
             <thead>
                 <tr>
@@ -27,7 +31,6 @@
                     <td>{{ marcas[item.marca] || 'Cargando...' }}</td> 
                     <td>{{ item.stock }}</td>
                     <td>
-                        <button @click="irVacunas(item.id)" class="btn btn-info" style="margin-right: 15px;">Vacunas</button>
                         <button @click="edit(item)" class="btn btn-dark" style="margin-right: 15px;">Editar</button>
                         <button @click="Eliminar(item.id)" class="btn btn-danger">Eliminar</button>
                     </td>
@@ -87,9 +90,6 @@ export default {
                 .catch(error => {
                     console.error(error);
                 });
-        },
-        irVacunas(id){
-            this.$router.push("/mascota/"+id+"/vacunas");
         },
         edit(item) {
             this.itemToEdit = Object.assign({}, item);

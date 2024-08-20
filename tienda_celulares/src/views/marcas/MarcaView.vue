@@ -30,6 +30,7 @@
                     <td>{{ item.nombre }}</td>
                     <td>{{ item.procedencia }}</td>
                     <td>
+                        <button @click="irCelulares(item.id)" class="btn btn-info" style="margin-right: 15px;">Celulares Disponibles</button>
                         <button @click="edit(item)" class="btn btn-dark" style="margin-right: 15px;">Editar</button>
                         <button @click="Eliminar(item.id)" class="btn btn-danger">Eliminar</button>
                     </td>
@@ -68,6 +69,9 @@ export default {
     methods: {
         // métodos que se pueden llamar desde la plantilla o desde otras partes del componente.
         ...mapActions(['increment']),
+        irCelulares(id){
+            this.$router.push("/marcas/"+id+"/celulares");
+        },
         getList() {
             const vm = this;
             this.axios.get(this.baseUrl + "/marcas?_embed=celulares&q=" + this.textToSearch)

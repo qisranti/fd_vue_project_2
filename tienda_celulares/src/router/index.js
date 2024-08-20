@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import MarcaView from '@/views/marcas/MarcaView.vue'
 import CelularesView from '@/views/celulares/CelularesView.vue'
+import CelularesMarcaView from '@/views/marcas/CelularesMarca.vue'
 
 const routes = [
   {
@@ -18,7 +19,12 @@ const routes = [
     path: '/celulares',
     name: 'celulares',
     component: CelularesView
-  }
+  },
+  {
+    path: '/marcas/:id/celulares',
+    name: 'marcaCelulares',
+    component: CelularesMarcaView 
+  },
   
 ]
 
