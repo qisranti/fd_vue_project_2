@@ -50,6 +50,12 @@
       "marca": "3",
       "stock": 20,
       "id": "VIL5MvC"
+    },
+    {
+      "nombre": "iPhone 14 Pro Max",
+      "marca": "1",
+      "stock": 20,
+      "id": "2IpkFLH"
     }
   ],
   "usuarios": [
